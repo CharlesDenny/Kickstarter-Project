@@ -1,0 +1,7 @@
+Cleaned Data:
+
+In ascending order by date from 2009-2018
+New category days_elapsed made to show how long the kickstarter campaign lasted
+Removed all other outcomes except success or fail
+361,000 pieces of data
+.csv format
