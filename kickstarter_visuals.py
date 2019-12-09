@@ -8,7 +8,7 @@ df = pd.read_csv("kickstarter_2018_clean.csv")
 useful = df[['category', 'main_category' ,'usd_goal_real','days_elapsed', 'state']]
 
 useful.category = pd.Categorical(useful.category)
-print(useful.category)
+#print(useful.category)
 useful.main_category = pd.Categorical(useful.main_category)
 useful.usd_goal_real = pd.Categorical(useful.usd_goal_real)
 useful.days_elapsed = pd.Categorical(useful.days_elapsed)
@@ -29,8 +29,8 @@ for i in range(0, 331674):
     else:
         main_categories.append(newmaincat)
         
-print(categories)
-print(main_categories)
+#print(categories)
+#print(main_categories)
 
 main_categories_data = []
 successes = 0
@@ -42,7 +42,7 @@ failure_rate = 0
 for i in range(0, 15):
     main_category_data = {'main_category': main_categories[i], 'successes': successes, 'failures': failures, 'total': total, 'success_rate': success_rate, 'failure_rate': failure_rate}   # successes, failures, total
     main_categories_data.append(main_category_data)
-    print(main_categories_data[i]['main_category'])
+    #print(main_categories_data[i]['main_category'])
 
 for i in range(0, 331674):
     main_category = useful.main_category[i]
@@ -59,7 +59,7 @@ for i in range(0, 15):
     main_categories_data[i]['success_rate'] =  main_categories_data[i]['successes']/main_categories_data[i]['total']
     main_categories_data[i]['failure_rate'] =  main_categories_data[i]['failures']/main_categories_data[i]['total']
     
-print(main_categories_data)
+#print(main_categories_data)
 
 for i in range(0, 15):
     labels = 'Success', 'Failure'
@@ -71,9 +71,12 @@ for i in range(0, 15):
 
     plt.title(main_categories_data[i]['main_category'], bbox={'facecolor':'0.8', 'pad':5})
     plt.show()
+
     
 objects = []
 resultdata = []
+
+
 
 for i in range(0, 15):
     objects.append(main_categories_data[i]['main_category'])
@@ -82,7 +85,7 @@ for i in range(0, 15):
 df = pd.DataFrame({'objects' : objects , 'resultdata' : resultdata})
 df = df.sort_values('resultdata')
     
-print(objects)
+#print(objects)
 
 #objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
 y_pos = np.arange(len(objects))
